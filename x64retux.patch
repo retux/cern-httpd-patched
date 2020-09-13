@@ -1,0 +1,88 @@
+diff -ru cern_pristino/WWW/All/linux/Makefile.include /home/matias/temp/cern_ori1/WWW/All/linux/Makefile.include
+--- cern_pristino/WWW/All/linux/Makefile.include	1995-10-03 02:11:29.000000000 -0300
++++ /home/matias/temp/cern_ori1/WWW/All/linux/Makefile.include	2020-07-25 19:45:10.760262932 -0300
+@@ -4,8 +4,9 @@
+ # For W3 distribution, machine type for subdirectories
+ WWW_MACH = linux
+ 
+-CFLAGS = -g -Wall -DPOSIXWAIT
+-LFLAGS =
++CFLAGS = -g -Wall -DPOSIXWAIT -std=gnu99 -Wno-unused-but-set-variable -Wno-unused-variable   
++#CFLAGS = -g -Wall -DPOSIXWAIT -std=gnu99 -Wno-unused-but-set-variable -Wno-unused-variable -D_DEFAULT_SOURCE  
++LFLAGS = -lcrypt  
+ CC = cc
+ 
+ # Directory for installed binary:
+diff -ru cern_pristino/WWW/Daemon/Implementation/HTSUtils.c /home/matias/temp/cern_ori1/WWW/Daemon/Implementation/HTSUtils.c
+--- cern_pristino/WWW/Daemon/Implementation/HTSUtils.c	1996-06-02 15:42:06.000000000 -0300
++++ /home/matias/temp/cern_ori1/WWW/Daemon/Implementation/HTSUtils.c	2020-07-25 19:26:24.073593295 -0300
+@@ -14,6 +14,7 @@
+ **
+ **
+ */
++#include <time.h>
+ 
+ #include "HTSUtils.h"
+ #include "tcp.h"
+Sólo en /home/matias/temp/cern_ori1/WWW/Daemon: linux
+diff -ru cern_pristino/WWW/Library/Implementation/HTFTP.c /home/matias/temp/cern_ori1/WWW/Library/Implementation/HTFTP.c
+--- cern_pristino/WWW/Library/Implementation/HTFTP.c	1994-09-25 10:53:25.000000000 -0300
++++ /home/matias/temp/cern_ori1/WWW/Library/Implementation/HTFTP.c	2020-07-25 19:03:42.411899942 -0300
+@@ -63,6 +63,7 @@
+ **
+ */
+ 
++#include <time.h>
+ /* Implementation dependent include files */
+ #include "tcp.h"
+ 
+@@ -1459,7 +1460,8 @@
+ 
+     /* Inherit the local address information from the control socket */
+     {
+-	int addr_size = sizeof(local_addr);
++	socklen_t addr_size = sizeof(local_addr);
++	//int addr_size = sizeof(local_addr);
+ 	if (getsockname(data->ctrl->sockfd, (struct sockaddr *)
+ 			&local_addr, &addr_size) < 0) {
+ 	    status = HTErrorSysAdd(data->request, ERR_FATAL, NO,"getsockname");
+@@ -1501,7 +1503,8 @@
+ #endif /* POLL_PORTS */
+     /* Now we must find out who we are to tell the other guy. */
+     {
+-	int addr_size = sizeof(local_addr);
++	socklen_t addr_size = sizeof(local_addr);
++	//int addr_size = sizeof(local_addr);
+ 	if (getsockname(data->sockfd, (struct sockaddr *) &local_addr,
+ 			&addr_size) < 0) {
+ 	    status = HTErrorSysAdd(data->request, ERR_FATAL, NO,"getsockname");
+diff -ru cern_pristino/WWW/Library/Implementation/HTString.h /home/matias/temp/cern_ori1/WWW/Library/Implementation/HTString.h
+--- cern_pristino/WWW/Library/Implementation/HTString.h	1994-09-25 11:15:24.000000000 -0300
++++ /home/matias/temp/cern_ori1/WWW/Library/Implementation/HTString.h	2020-07-25 19:12:55.110731383 -0300
+@@ -30,8 +30,8 @@
+    
+  */
+ 
+-PUBLIC char * strcasestr PARAMS((char * s1,
+-                                 char * s2));
++//PUBLIC char * strcasestr PARAMS((char * s1,
++//                                 char * s2));
+ 
+ /*
+ 
+diff -ru cern_pristino/WWW/Library/Implementation/HTTCP.c /home/matias/temp/cern_ori1/WWW/Library/Implementation/HTTCP.c
+--- cern_pristino/WWW/Library/Implementation/HTTCP.c	1996-06-21 12:47:26.000000000 -0300
++++ /home/matias/temp/cern_ori1/WWW/Library/Implementation/HTTCP.c	2020-07-25 16:24:27.509816378 -0300
+@@ -117,7 +117,7 @@
+ #ifndef VMS
+ #ifndef NeXT
+ #ifndef THINK_C
+-extern char *sys_errlist[];		/* see man perror on cernvax */
++// extern char *sys_errlist[];		/* see man perror on cernvax */
+ extern int sys_nerr;
+ #endif  /* think c */
+ #endif	/* NeXT */
+Sólo en cern_pristino/WWW/Library/Implementation: HTWriter.c.patch~
+Sólo en cern_pristino/WWW/Library/Implementation: HTWriter.c.patch2~
+Sólo en /home/matias/temp/cern_ori1/WWW/Library: linux
+Sólo en /home/matias/temp/cern_ori1/WWW/server_root/config: httpd-retux.conf
