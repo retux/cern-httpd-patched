@@ -1,0 +1,10 @@
+--- WWW/Daemon/Implementation/HTSUtils.c	1996-06-02 15:42:06.000000000 -0300
++++ home/matias/temp/cern_ori1/WWW/Daemon/Implementation/HTSUtils.c	2020-07-25 19:26:24.073593295 -0300
+@@ -14,6 +14,7 @@
+ **
+ **
+ */
++#include <time.h>
+ 
+ #include "HTSUtils.h"
+ #include "tcp.h"

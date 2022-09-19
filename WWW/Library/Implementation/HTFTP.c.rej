@@ -1,0 +1,30 @@
+--- WWW/Library/Implementation/HTFTP.c	1994-09-25 10:53:25.000000000 -0300
++++ home/matias/temp/cern_ori1/WWW/Library/Implementation/HTFTP.c	2020-07-25 19:03:42.411899942 -0300
+@@ -63,6 +63,7 @@
+ **
+ */
+ 
++#include <time.h>
+ /* Implementation dependent include files */
+ #include "tcp.h"
+ 
+@@ -1459,7 +1460,8 @@
+ 
+     /* Inherit the local address information from the control socket */
+     {
+-	int addr_size = sizeof(local_addr);
++	socklen_t addr_size = sizeof(local_addr);
++	//int addr_size = sizeof(local_addr);
+ 	if (getsockname(data->ctrl->sockfd, (struct sockaddr *)
+ 			&local_addr, &addr_size) < 0) {
+ 	    status = HTErrorSysAdd(data->request, ERR_FATAL, NO,"getsockname");
+@@ -1501,7 +1503,8 @@
+ #endif /* POLL_PORTS */
+     /* Now we must find out who we are to tell the other guy. */
+     {
+-	int addr_size = sizeof(local_addr);
++	socklen_t addr_size = sizeof(local_addr);
++	//int addr_size = sizeof(local_addr);
+ 	if (getsockname(data->sockfd, (struct sockaddr *) &local_addr,
+ 			&addr_size) < 0) {
+ 	    status = HTErrorSysAdd(data->request, ERR_FATAL, NO,"getsockname");

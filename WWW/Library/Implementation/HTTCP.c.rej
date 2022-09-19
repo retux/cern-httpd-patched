@@ -1,0 +1,11 @@
+--- WWW/Library/Implementation/HTTCP.c	1996-06-21 12:47:26.000000000 -0300
++++ home/matias/temp/cern_ori1/WWW/Library/Implementation/HTTCP.c	2020-07-25 16:24:27.509816378 -0300
+@@ -117,7 +117,7 @@
+ #ifndef VMS
+ #ifndef NeXT
+ #ifndef THINK_C
+-extern char *sys_errlist[];		/* see man perror on cernvax */
++// extern char *sys_errlist[];		/* see man perror on cernvax */
+ extern int sys_nerr;
+ #endif  /* think c */
+ #endif	/* NeXT */

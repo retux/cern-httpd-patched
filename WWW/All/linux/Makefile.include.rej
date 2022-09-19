@@ -1,0 +1,14 @@
+--- WWW/All/linux/Makefile.include	1995-10-03 02:11:29.000000000 -0300
++++ home/matias/temp/cern_ori1/WWW/All/linux/Makefile.include	2020-07-25 19:45:10.760262932 -0300
+@@ -4,8 +4,9 @@
+ # For W3 distribution, machine type for subdirectories
+ WWW_MACH = linux
+ 
+-CFLAGS = -g -Wall -DPOSIXWAIT
+-LFLAGS =
++CFLAGS = -g -Wall -DPOSIXWAIT -std=gnu99 -Wno-unused-but-set-variable -Wno-unused-variable   
++#CFLAGS = -g -Wall -DPOSIXWAIT -std=gnu99 -Wno-unused-but-set-variable -Wno-unused-variable -D_DEFAULT_SOURCE  
++LFLAGS = -lcrypt  
+ CC = cc
+ 
+ # Directory for installed binary:
