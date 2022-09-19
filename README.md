@@ -16,6 +16,7 @@ Enjoy a taste of Web's history by building and running CERN's httpd server.
 Code forked here has already been patched, but if by chance you want to patch CERN's pristine code you can try:
 
 ```
+$ gzip -dc w3c-httpd-3.0A.tar.gz | tar xvf -
 $ cd WWW
 $ patch -p2 < ../x64retux.patch
 ```
