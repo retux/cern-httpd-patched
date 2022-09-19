@@ -11,4 +11,11 @@ Enjoy a taste of Web's history by building and running CERN's httpd server.
 
 [![Back to the Web Early Begginings](https://img.youtube.com/vi/prC3Cry_fYs/0.jpg)](https://www.youtube.com/watch?v=prC3Cry_fYs "Back to the Web early beginnings: Building CERN httpd, the first Web Server")
 
+# How to patch
 
+Code forked here has already been patched, but if by chance you want to patch CERN's pristine code you can try:
+
+```
+$ cd WWW
+$ patch -p2 < ../x64retux.patch
+```
