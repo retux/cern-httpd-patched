@@ -11,9 +11,17 @@ Enjoy a taste of Web's history by building and running CERN's httpd server.
 
 [![Back to the Web Early Begginings](https://img.youtube.com/vi/prC3Cry_fYs/0.jpg)](https://www.youtube.com/watch?v=prC3Cry_fYs "Back to the Web early beginnings: Building CERN httpd, the first Web Server")
 
+# Prerequisites
+
+To build CERN's http on a current Linux distro you will need at least the build tools and csh (C shell). On a Debian based distribution that toolset can be installed as follows:
+
+```
+$ sudo apt-get install build-essential csh
+```
+
 # How to patch
 
-Code forked here has already been patched, but if by chance you want to patch CERN's pristine code you can try:
+cd into WWW, apply the patch and after that run make command (see prerequisites above):
 
 ```
 $ gzip -dc w3c-httpd-3.0A.tar.gz | tar xvf -
