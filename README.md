@@ -47,11 +47,12 @@ $ make
 
 If everything runs fine you should get:
 
-
+```
 **Have fun!** If you have any problems with this software feel free to
 contact <httpd@w3.org>. Online documentation is available via
 the <URL:http://www.w3.org/pub/WWW/Daemon/>
 
 **BUILD complete!**
+```
 
 Like in 1991, have fun with this historic piece of code.
