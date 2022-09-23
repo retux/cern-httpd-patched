@@ -41,7 +41,6 @@ patching file Library/Implementation/HTTCP.c
 And then you can try building the code:
 
 ```
-$ cd WWW
 $ make
 ```
 
