@@ -21,11 +21,11 @@ $ sudo apt-get install build-essential csh
 
 # How to patch
 
-cd into WWW, apply the patch and after that run make command (see prerequisites above):
+Follow the steps below to run make command and build httpd web server (see prerequisites above):
 
 ```
-$ gzip -dc w3c-httpd-3.0A.tar.gz | tar xvf -
 $ cd WWW
+$ gzip -dc w3c-httpd-3.0A.tar.gz | tar xvf -
 $ patch -p2 < ../x64retux.patch
 ```
 You should get:
