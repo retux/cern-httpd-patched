@@ -1,0 +1,97 @@
+<TITLE>BNF -- /Addressing</TITLE>
+<NEXTID 108>
+<H1>W3 address syntax: BNF</H1>This is a BNF-like description of the <A NAME=73 HREF="Addressing.html">W3 addressing syntax</A> . We use
+a vertical line "|" to indicate alternatives, and [brackets] to indicate
+optional parts.   Spaces are representational only: no spaces are
+actually allowed within a W3 address. Single letters stand for single
+letters. All words of more than one letter below are entites described
+elsewhere in the syntax description.  (Entity names are here linked
+to their definitions, probably making this difficult to read with
+the line mode browser.)<P>
+An absolute address specified in a link is an <A NAME=48 HREF="BNF.html#47">anchoraddress</A> . The
+address which is passed to a server is a <A NAME=49 HREF="BNF.html#22">docaddress</A> .
+<DL>
+<DT><A NAME=47>anchoraddress</A>
+<DD><A NAME=23 HREF="BNF.html#22"> docaddress</A> [ # <A NAME=21 HREF="BNF.html#20">anchor</A> ]
+<DT><A NAME=22>docaddress</A>
+<DD><A NAME=2 HREF="BNF.html#1"> httpaddress</A> | <A NAME=52 HREF="BNF.html#51">fileaddress</A> | <A NAME=93 HREF="BNF.html#92">newsaddress</A> | <A NAME=56 HREF="BNF.html#55">telnetaddress</A>
+| <A NAME=pros1 HREF="BNF.html#pros">prosperoaddress</A>
+| <A NAME=78 HREF="BNF.html#72">gopheraddress</A> | <A NAME=106 HREF="BNF.html#105">waisaddress</A>
+<DT><A NAME=1>httpaddress</A>
+<DD> h t t p :   / / <A NAME=4 HREF="BNF.html#3">hostport</A>  [  / <A NAME=10 HREF="BNF.html#9">path</A> ] [ ? <A NAME=12 HREF="BNF.html#11">search</A> ]
+<dt><a name=pros>prosperoaddress</a>
+<dd> p r o s p e r o : / / <A NAME=pros3 HREF="BNF.html#3">hostport</A>
+/  <A NAME=50 HREF="BNF.html#9">path</A>
+<DT><A NAME=51>fileaddress</A>
+<DD> f i l e : / / <A NAME=44 HREF="BNF.html#43">host</A> / <A NAME=50 HREF="BNF.html#9">path</A>
+<DT><A NAME=92>newsaddress</A>
+<DD> n e w s : <A NAME=91 HREF="BNF.html#90">groupart</A>
+<DT><A NAME=105>waisaddress</A>
+<DD>waisindex | waisdoc
+<DT>waisindex
+<DD>w a i s : / / <A NAME=97 HREF="BNF.html#3">hostport</A> / <A NAME=96 HREF="BNF.html#95">database</A> [ ? <A NAME=98 HREF="BNF.html#11">search</A> ]
+<DT>waisdoc
+<DD>w a i s : / / <A NAME=100 HREF="BNF.html#3">hostport</A> / <A NAME=101 HREF="BNF.html#95">database</A> / <A NAME=103 HREF="BNF.html#102">wtype</A> / <A NAME=107 HREF="BNF.html#24">digits</A> / <A NAME=99 HREF="BNF.html#9">path</A>
+<DT><A NAME=90>groupart</A>
+<DD> * | <A NAME=88 HREF="BNF.html#87">group</A> | <A NAME=86 HREF="BNF.html#85">article</A>
+<DT><A NAME=87>group</A>
+<DD><A NAME=82 HREF="BNF.html#81"> ialpha</A> [ . <A NAME=89 HREF="BNF.html#87">group</A> ]
+<DT><A NAME=85>article</A>
+<DD><A NAME=83 HREF="BNF.html#17"> xalphas</A> @ <A NAME=84 HREF="BNF.html#43">host</A>
+<DT><A NAME=95>database</A>
+<DD><A NAME=94 HREF="BNF.html#17">xalphas</A>
+<DT><A NAME=102>wtype</A>
+<DD><A NAME=104 HREF="BNF.html#17">xalphas</A>
+<DT><A NAME=55>telnetaddress</A>
+<DD> t e l n e t : / / [ <A NAME=58 HREF="BNF.html#57">user</A> @ ] <A NAME=53 HREF="BNF.html#3">hostport</A>
+<DT><A NAME=72>gopheraddress</A>
+<DD> g o p h e r : / / <A NAME=64 HREF="BNF.html#3">hostport</A>  [/ <A NAME=71 HREF="BNF.html#70">gtype</A>  [ / <A NAME=67 HREF="BNF.html#75">selector </A>]
+] [ ? <A NAME=66 HREF="BNF.html#11">search</A> ]
+<DT><A NAME=3>hostport</A>
+<DD><A NAME=6 HREF="BNF.html#43"> host</A> [ : <A NAME=8 HREF="BNF.html#7">port</A> ]
+<DT><A NAME=43>host</A>
+<DD><A NAME=38 HREF="BNF.html#5"> hostname</A> | <A NAME=46 HREF="BNF.html#45">hostnumber</A>
+<DT><A NAME=5>hostname</A>
+<DD><A NAME=59 HREF="BNF.html#81"> ialpha</A> [  .  <A NAME=60 HREF="BNF.html#5">hostname</A> ]
+<DT><A NAME=45>hostnumber</A>
+<DD><A NAME=39 HREF="BNF.html#24"> digits</A> . <A NAME=40 HREF="BNF.html#24">digits</A> . <A NAME=41 HREF="BNF.html#24">digits</A> . <A NAME=42 HREF="BNF.html#24">digits</A>
+<DT><A NAME=7>port</A>
+<DD><A NAME=25 HREF="BNF.html#24"> digits</A>
+<DT><A NAME=75>selector</A>
+<DD><A NAME=74 HREF="BNF.html#9"> path</A>
+<DT><A NAME=9>path</A>
+<DD><A NAME=62 HREF="BNF.html#61"> void</A> |  <A NAME=14 HREF="BNF.html#17">xalphas</A>  [  / <A NAME=63 HREF="BNF.html#9">path</A> ]
+<DT><A NAME=11>search</A>
+<DD><A NAME=15 HREF="BNF.html#17"> xalphas</A> [ + <A NAME=68 HREF="BNF.html#11">search</A> ]
+<DT><A NAME=57>user</A>
+<DD><A NAME=54 HREF="BNF.html#17"> xalphas</A>
+<DT><A NAME=20>anchor</A>
+<DD><A NAME=19 HREF="BNF.html#17"> xalphas</A>
+<DT><A NAME=70>gtype</A>
+<DD><A NAME=69 HREF="BNF.html#13"> xalpha</A>
+<DT><A NAME=13>xalpha</A>
+<DD><A NAME=32 HREF="BNF.html#30"> alpha</A> | $ | _ | @ | ! | % | ^ | & | * |  (  |  ) | . | <A NAME=33 HREF="BNF.html#27">digit</A>
+<DT><A NAME=17>xalphas</A>
+<DD><A NAME=16 HREF="BNF.html#13"> xalpha</A> [ <A NAME=18 HREF="BNF.html#17">xalphas</A> ]
+<DT><A NAME=81>ialpha</A>
+<DD><A NAME=79 HREF="BNF.html#30"> alpha</A> [ <A NAME=80 HREF="BNF.html#17">xalphas</A> ]
+<DT><A NAME=30>alpha</A>
+<DD> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
+p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F
+| G | H | I | J | K | L | M | N  | O | P | Q | R | S | T | U | V |
+W | X | Y | Z
+<DT><A NAME=27>digit</A>
+<DD> 0 |1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<DT><A NAME=24>digits</A>
+<DD><A NAME=28 HREF="BNF.html#27"> digit</A> [ <A NAME=26 HREF="BNF.html#24">digits</A> ]
+<DT><A NAME=34>alphanum</A>
+<DD><A NAME=31 HREF="BNF.html#30"> alpha</A> | <A NAME=29 HREF="BNF.html#27">digit</A>
+<DT><A NAME=36>alphanums</A>
+<DD><A NAME=35 HREF="BNF.html#34"> alphanum</A> [ <A NAME=37 HREF="BNF.html#36">alphanums</A> ]
+<DT><A NAME=61>void</A>
+<DD>
+</DL>
+See also: General <A NAME=76 HREF="Addressing.html">description</A> of this syntax, <A NAME=77 HREF="http://info.cern.ch/hypertext/WWW/Addressing/Escaping.html">Escaping</A> conventions.
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>
+</ADDRESS>
