@@ -9,7 +9,9 @@ RUN apt-get update \
 
 # Copy your server
 COPY ./usr/local/bin/* /usr/local/bin
-RUN chmod +x /usr/local/bin/httpd_3.0A && mkdir -p /var/www/html && mkdir -p /etc/httpd
+RUN chmod +x /usr/local/bin/httpd_3.0A && mkdir -p /var/www/WWW && mkdir -p /etc/httpd
+COPY ./server_root/config/httpd-cern.conf /etc/httpd/
+COPY ./var/www/WWW/ /var/www/WWW/
 # non-root user for cern httpd
 RUN useradd -r -s /usr/sbin/nologin cernuser
 USER cernuser
