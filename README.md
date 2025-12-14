@@ -7,6 +7,19 @@ IMPORTANT: this repo was created only for historical purposes and curiosity. It 
 any productive use.
 Enjoy a taste of Web's history by building and running CERN's httpd server.
 
+# How to run it straight away
+
+If you simply want to experiment and run CERN's httpd server right away you can do it by using this container:
+
+```
+$ podman run -p 8080:8080 --name httpd docker.io/retux/cern-httpd:1992
+```
+
+You can find the CERN original site by typing http://localhost:8080/ on your browser.
+On the httpd server logs you may see some errors, that is likely due to the fact modern browsers handle the tcp socket in a different way from the early browsers from the nineties. Both web servers and browsers have changed... a lot.
+
+If you want to build it, you can run the instructions below.
+
 # A short demo can be found in the link below:
 
 [![Back to the Web Early Begginings](https://img.youtube.com/vi/prC3Cry_fYs/0.jpg)](https://www.youtube.com/watch?v=prC3Cry_fYs "Back to the Web early beginnings: Building CERN httpd, the first Web Server")
